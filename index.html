@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URE Caieiras · Escolas Olímpicas · GaVa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        body { font-family: 'Roboto', sans-serif; background-color: #f9fafb; }
+        .seduc-blue { background-color: #005CA9; }
+        .seduc-light-blue { background-color: #E6F2FF; }
+        .seduc-yellow { background-color: #FFD100; }
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .mobile-menu { transition: all 0.3s ease; max-height: 0; overflow: hidden; }
+        .mobile-menu.open { max-height: 500px; }
+        .doc-card:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(0,92,169,0.12); }
+        .step-icon { width: 50px; height: 50px; }
+        .tab-button.active { background-color: #005CA9; color: white; border-color: #005CA9; }
+        .gava-float { transition: transform 0.2s; }
+        .gava-float:hover { transform: scale(1.03); }
+        .school-card { transition: all 0.2s; }
+        .school-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0,92,169,0.2); }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Cabeçalho com dois logos: original URE + segundo logo -->
+    <header class="seduc-blue text-white shadow-md">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <!-- ========== IMAGEM 1: Logo original URE ========== -->
+                <img src="https://i.ibb.co/dscRg9Ms/LOGO-URE-CAIEIRAS-2-1.png" alt="URE Caieiras" class="h-14 md:h-16">
+                
+                <!-- ========== IMAGEM 2: Segundo logo (URE 2) ========== -->
+                <img src="https://i.ibb.co/0jG3FZ0r/Aulas-Ol-mpicas-URE-2.jpg" alt="Aulas Olímpicas URE (2)" class="h-12 md:h-14 rounded-lg shadow-sm border-2 border-white/30">
+                
+                <div class="hidden md:block border-l-2 border-white h-12"></div>
+                <div class="hidden md:block">
+                    <h1 class="text-xl font-bold">URE Caieiras</h1>
+                    <p class="text-sm">Escolas Olímpicas · GaVa</p>
+                </div>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="font-medium hover:text-yellow-200">Início</a>
+                <a href="#escolas-olimpicas" class="font-medium hover:text-yellow-200">Aulas Olímpicas</a>
+                <a href="#nossas-escolas" class="font-medium hover:text-yellow-200">Nossas Escolas</a>
+                <a href="#processo" class="font-medium hover:text-yellow-200">Processo</a>
+                <a href="#materiais" class="font-medium hover:text-yellow-200">Divulgação</a>
+                <a href="#documentos" class="font-medium hover:text-yellow-200">Documentos</a>
+            </nav>
+        </div>
+        
+        <!-- menu mobile -->
+        <div id="mobile-menu" class="mobile-menu md:hidden seduc-light-blue">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-2">
+                <a href="#" class="block py-2 px-4 seduc-blue text-white rounded">Início</a>
+                <a href="#escolas-olimpicas" class="block py-2 px-4 seduc-blue text-white rounded">Aulas Olímpicas</a>
+                <a href="#nossas-escolas" class="block py-2 px-4 seduc-blue text-white rounded">Nossas Escolas</a>
+                <a href="#processo" class="block py-2 px-4 seduc-blue text-white rounded">Processo</a>
+                <a href="#materiais" class="block py-2 px-4 seduc-blue text-white rounded">Divulgação</a>
+                <a href="#documentos" class="block py-2 px-4 seduc-blue text-white rounded">Documentos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- BANNER PRINCIPAL (imagem atualizada) -->
+    <div class="relative">
+        <a href="https://ibb.co/nsVgxqj6" target="_blank" class="block w-full">
+            <!-- ========== IMAGEM 3: Banner principal (URE 8) ========== -->
+            <img src="https://i.ibb.co/nsVgxqj6/Aulas-Ol-mpicas-URE-8.jpg" alt="Aulas Olímpicas URE (8) banner" class="w-full object-cover max-h-96" style="min-height:200px">
+        </a>
+        <!-- mascote GaVa sobreposto -->
+        <div class="absolute bottom-2 right-4 md:bottom-6 md:right-10 flex items-end space-x-2">
+            <!-- ========== IMAGEM 4: Mascote GaVa (URE 1) ========== -->
+            <img src="https://i.ibb.co/1tx9ggH6/Aulas-Ol-mpicas-URE-1.jpg" alt="GaVa mascote olímpico" class="gava-float h-20 md:h-32 rounded-full border-4 border-white shadow-xl bg-white/20 backdrop-blur-sm">
+            <span class="text-white font-bold text-xl drop-shadow-lg hidden sm:inline">GaVa te acompanha!</span>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- cards destaque com o mascote GaVa -->
+        <div class="mb-8 bg-gradient-to-r from-blue-50 to-white p-5 rounded-2xl shadow flex items-center gap-4">
+            <!-- ========== IMAGEM 5: Mascote GaVa (URE 1) ========== -->
+            <img src="https://i.ibb.co/1tx9ggH6/Aulas-Ol-mpicas-URE-1.jpg" alt="GaVa" class="w-20 h-20 rounded-full border-4 border-blue-300">
+            <div>
+                <span class="bg-seduc-yellow text-blue-900 font-bold px-3 py-1 rounded-full text-sm">OLIMPÍADAS 2026</span>
+                <p class="text-gray-700 mt-2 text-lg"><span class="font-bold text-blue-800">GaVa</span> é o mascote das Escolas Olímpicas da URE Caieiras. Prepare-se, estude com a gente e venceremos juntos!</p>
+            </div>
+        </div>
+
+        <!-- SEÇÃO ESCOLAS OLÍMPICAS -->
+        <section id="escolas-olimpicas" class="mb-12 scroll-mt-20">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="seduc-blue text-white px-6 py-4 flex items-center gap-2">
+                    <i class="fas fa-medal text-2xl"></i>
+                    <h2 class="text-2xl font-bold">Aulas Olímpicas – URE Caieiras</h2>
+                    <!-- ========== IMAGEM 6: Mascote GaVa no título ========== -->
+                    <img src="https://i.ibb.co/1tx9ggH6/Aulas-Ol-mpicas-URE-1.jpg" alt="GaVa" class="h-10 w-10 rounded-full ml-auto border-2 border-white">
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-700 mb-4 text-lg">Com o GaVa, sua preparação para <span style="color: red;">OMASP</span>, OBM, OBMEP, OLISP fica mais leve. As <span style="color: red;">Aulas Olímpicas</span> acontecem aos <span style="color: red;">sábados (manhã)</span>, turmas por nível e foco em <span style="color: red;">matemática, física e astronomia</span>.</p>
+                    <div class="grid md:grid-cols-3 gap-4 mt-6">
+                        <div class="seduc-light-blue p-5 rounded-lg border-l-4 border-blue-800 flex flex-col items-start">
+                            <i class="fas fa-trophy text-blue-800 text-3xl mb-2"></i>
+                            <h3 class="font-bold text-lg">OMASP</h3>
+                            <p class="text-sm">Matemática da rede. 1ª fase na Prova Paulista (1º bim). Medalhas de ouro, prata, bronze. 225 ouro vão a SP.</p>
+                        </div>
+                        <div class="seduc-light-blue p-5 rounded-lg border-l-4 border-blue-800 flex flex-col items-start">
+                            <i class="fas fa-book-open text-blue-800 text-3xl mb-2"></i>
+                            <h3 class="font-bold text-lg">OLISP</h3>
+                            <p class="text-sm">Leitura e interpretação. 1ª fase na Prova Paulista (2º bim). Reconhecimento para alunos, professores e escolas.</p>
+                        </div>
+                        <div class="seduc-light-blue p-5 rounded-lg border-l-4 border-blue-800 flex flex-col items-start">
+                            <i class="fas fa-rocket text-blue-800 text-3xl mb-2"></i>
+                            <h3 class="font-bold text-lg">#SEDUCOlímpica</h3>
+                            <p class="text-sm">Incentivo a OBM, OBMEP, OLITEF, OBA… GaVa incentiva todas as áreas!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO NOSSAS ESCOLAS OLÍMPICAS -->
+        <section id="nossas-escolas" class="mb-12 scroll-mt-20">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                
+                <div class="seduc-blue text-white px-6 py-4 flex items-center"><img src="https://i.ibb.co/1tx9ggH6/Aulas-Ol-mpicas-URE-1.jpg" alt="GaVa" class="w-20 h-20 rounded-full border-4 border-blue-300">
+                    <i class="fas fa-school-circle-check text-2xl mr-3"></i>
+                    <h2 class="text-2xl font-bold">Escolas Olímpicas da URE Caieiras</h2>
+                    
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-700 mb-6 text-lg">Cinco unidades que, com o apoio do GaVa, formam talentos e fortalecem a cultura olímpica. Conheça cada uma e sua frase inspiradora:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- CAIEIRAS - OTTO WEISZFLOG -->
+                        <div class="school-card bg-gradient-to-br from-blue-50 to-white p-5 rounded-xl border-l-4 border-blue-800 shadow-sm">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="fas fa-building-columns text-blue-800 text-2xl"></i>
+                                <h3 class="font-bold text-lg text-blue-900">OTTO WEISZFLOG</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2"><span class="font-semibold">Caieiras</span></p>
+                            <p class="text-sm text-gray-600 mb-2"><span class="font-semibold">Av. Dr. Olindo Dartora, 455 - Centro, Caieiras - SP, 07700-000</span></p>
+                            <p class="italic text-blue-800 border-t pt-2 mt-2">"Em Caieiras, o saber é sólido como suas rochas; com dedicação, cada aluno constrói seu próprio caminho."</p>
+                        </div>
+                        <!-- CAJAMAR - JOAQUIM MARQUES DA SILVA SOBRINHO -->
+                        <div class="school-card bg-gradient-to-br from-blue-50 to-white p-5 rounded-xl border-l-4 border-blue-800 shadow-sm">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="fas fa-building-columns text-blue-800 text-2xl"></i>
+                                <h3 class="font-bold text-lg text-blue-900">JOAQUIM MARQUES DA SILVA SOBRINHO</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2"><span class="font-semibold">Cajamar</span></p>
+                            <p class="text-sm text-gray-600 mb-2"><span class="font-semibold">Av. Prof. Walter Ribas de Andrade, 115 - Vila Nova, Cajamar - SP, 07750-000</span></p>
+                            <p class="italic text-blue-800 border-t pt-2 mt-2">"Em Cajamar, o conhecimento floresce como a natureza local; cada descoberta é um passo para o futuro."</p>
+                        </div>
+                        <!-- FRANCISCO MORATO - LENITA CORREA CAMARGO -->
+                        <div class="school-card bg-gradient-to-br from-blue-50 to-white p-5 rounded-xl border-l-4 border-blue-800 shadow-sm">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="fas fa-building-columns text-blue-800 text-2xl"></i>
+                                <h3 class="font-bold text-lg text-blue-900">LENITA CORREA CAMARGO</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2"><span class="font-semibold">Francisco Morato</span></p>
+                            <p class="text-sm text-gray-600 mb-2"><span class="font-semibold">Rua das Hortênsias, 100 - Jardim de Alah, Francisco Morato - SP, 07951-120</span></p>
+                            <p class="italic text-blue-800 border-t pt-2 mt-2">"Em Francisco Morato, a força da comunidade impulsiona sonhos; juntos, vamos sempre além."</p>
+                        </div>
+                        <!-- FRANCO DA ROCHA - BENEDITO FAGUNDES MARQUES -->
+                        <div class="school-card bg-gradient-to-br from-blue-50 to-white p-5 rounded-xl border-l-4 border-blue-800 shadow-sm">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="fas fa-building-columns text-blue-800 text-2xl"></i>
+                                <h3 class="font-bold text-lg text-blue-900">BENEDITO FAGUNDES MARQUES</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2"><span class="font-semibold">Rua Basílio Fazzi, 145 - Companhia Fazenda Belém, Franco da Rocha - SP, 07801-100</span></p>
+                            <p class="text-sm text-gray-600 mb-2"><span class="font-semibold">Franco da Rocha</span></p>
+                            <p class="italic text-blue-800 border-t pt-2 mt-2">"Em Franco da Rocha, o saber é firme como as rochas que nomeiam a cidade; cada conquista é uma vitória coletiva."</p>
+                        </div>
+                        <!-- MAIRIPORÃ - NIDE ZAIM CARDOSO -->
+                        <div class="school-card bg-gradient-to-br from-blue-50 to-white p-5 rounded-xl border-l-4 border-blue-800 shadow-sm">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="fas fa-building-columns text-blue-800 text-2xl"></i>
+                                <h3 class="font-bold text-lg text-blue-900">NIDE ZAIM CARDOSO</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2"><span class="font-semibold">Mairiporã</span></p>
+                            <p class="text-sm text-gray-600 mb-2"><span class="font-semibold">Rua São Paulo, 260 - Coimbra, Mairiporã - SP, 07600-000</span></p>
+                            <p class="italic text-blue-800 border-t pt-2 mt-2">"Em Mairiporã, cercada por águas e montanhas, a educação nos eleva a novos horizontes."</p>
+                        </div>
+                        <!-- card extra com GaVa -->
+                        <div class="bg-seduc-light-blue p-5 rounded-xl flex flex-col items-center justify-center text-center">
+                            <!-- ========== IMAGEM 7: Mascote GaVa no card extra ========== -->
+                            <img src="https://i.ibb.co/1tx9ggH6/Aulas-Ol-mpicas-URE-1.jpg" class="w-16 h-16 rounded-full mb-2 border-2 border-blue-800">
+                            <p class="font-bold text-blue-900">GaVa está com vocês!</p>
+                            <p class="text-xs text-gray-600">Juntos somos mais fortes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO PROCESSO (ABAS) -->
+        <section id="processo" class="mb-12 scroll-mt-20">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="seduc-blue text-white px-6 py-4 flex items-center gap-2">
+                    <img src="https://i.ibb.co/1tx9ggH6/Aulas-Ol-mpicas-URE-1.jpg" alt="GaVa" class="w-20 h-20 rounded-full border-4 border-blue-300">
+                    <i class="fas fa-diagram-project mr-2"></i> 
+                    <h2 class="text-2xl font-bold">Ciclo Olímpico 2026 – com GaVa</h2>
+                </div>
+                <div class="p-6">
+                    <!-- abas -->
+                    <div class="flex flex-wrap border-b border-gray-300 mb-6">
+                        <button class="tab-button active px-5 py-3 font-medium text-sm focus:outline-none" data-tab="tab1">📌 Abertura & matrícula</button>
+                        <button class="tab-button px-5 py-3 font-medium text-sm focus:outline-none hover:bg-gray-100" data-tab="tab2">⚖️ Critérios</button>
+                        <button class="tab-button px-5 py-3 font-medium text-sm focus:outline-none hover:bg-gray-100" data-tab="tab3">🎯 Classificação</button>
+                        <button class="tab-button px-5 py-3 font-medium text-sm focus:outline-none hover:bg-gray-100" data-tab="tab4">📋 Guias</button>
+                    </div>
+
+                    <div id="tab1" class="tab-content block">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">Fluxo de abertura e matrícula</h3>
+                        <ol class="list-decimal pl-6 space-y-2">
+                            <li><span class="font-semibold">Projeção:</span> Time Olimpíadas sugere escolas por município.</li>
+                            <li><span class="font-semibold">Indicação:</span> URE indica Escolas Olímpicas na SED.</li>
+                            <li><span class="font-semibold">Inscrições:</span> Alunos pela Sala do Futuro (fev/jul são os períodos de maior mobilização).</li>
+                            <li><span class="font-semibold">Seleção de professores:</span> URE seleciona docentes de matemática/física.</li>
+                            <li><span class="font-semibold">Avaliação:</span> Time Olimpíadas valida as escolas com 2+ turmas (25 a 40 alunos) + professor.</li>
+                            <li><span class="font-semibold">Repescagem:</span> Escolas com 15+ alunos e 2 turmas podem ganhar extensão.</li>
+                        </ol>
+                    </div>
+                    <div id="tab2" class="tab-content hidden">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">Critérios de funcionamento</h3>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li><strong>Município elegível:</strong> quantitativo mínimo de alunos.</li>
+                            <li><strong>Escola:</strong> mínimo 2 turmas; 25 a 40 alunos por turma; um professor por turma.</li>
+                            <li><strong>Diversidade:</strong> alunos de diferentes escolas de origem.</li>
+                            <li><strong>Manutenção:</strong> mínimo 15 alunos frequentes para turma não fechar.</li>
+                        </ul>
+                    </div>
+                    <div id="tab3" class="tab-content hidden">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">Classificação de estudantes</h3>
+                        <p>Ordem de prioridade (automática na SED para os três primeiros):</p>
+                        <ol class="list-decimal pl-6 mt-2">
+                            <li>Participantes ativos nas Aulas Olímpicas anteriores (≤3 faltas).</li>
+                            <li>Participação em outras olimpíadas (OBM, OBMEP…).</li>
+                            <li>Medalhistas da OMASP.</li>
+                            <li>Maior nota na Prova Paulista / SARESP.</li>
+                            <li>Os 5% melhores no SARESP (6º ano).</li>
+                        </ol>
+                        <p class="mt-3 p-2 bg-yellow-50 text-sm"><i class="fas fa-file-signature mr-1"></i> Autorização dos responsáveis obrigatória.</p>
+                    </div>
+                    <div id="tab4" class="tab-content hidden">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">Guias rápidos (SED)</h3>
+                        <div class="grid sm:grid-cols-2 gap-2">
+                            <a href="https://drive.google.com/file/d/1OgGTmVkHTAwBNS8rBaDJexc_4av_YsC5/view?usp=drive_link" class="block border p-2 rounded hover:bg-gray-50 transition-colors no-underline text-black">
+                                <i class="fas fa-user-plus text-blue-600 mr-2"></i>Inscrição do estudante
+                            </a>
+                            
+                            <a href="https://drive.google.com/file/d/1Rt7e7AHEwcqDtTBv_YZsWIFIIXYsPsz0/view?usp=drive_link" class="block border p-2 rounded hover:bg-gray-50 transition-colors no-underline text-black">
+                                <i class="fas fa-check-double text-blue-600 mr-2"></i>Calendário Olímpico
+                            </a>
+                            
+                            <a href="https://drive.google.com/file/d/1-OjNy1GIFvOiiOOzj0Yv8doM170_Osj-/view?usp=drive_link" class="block border p-2 rounded hover:bg-gray-50 transition-colors no-underline text-black">
+                                <i class="fas fa-school text-blue-600 mr-2"></i>Indicar Escolas
+                            </a>
+                            
+                            <a href="https://drive.google.com/file/d/1R7-Ya-LD_djNX7Sqq6T05oV8kGaqE0Qa/view?usp=drive_link" class="block border p-2 rounded hover:bg-gray-50 transition-colors no-underline text-black">
+                                <i class="fas fa-file-upload text-blue-600 mr-2"></i>Autorização física
+                            </a>
+                                                                                  
+                            <a href="https://lookerstudio.google.com/reporting/9a9d1ead-f482-4b95-a8fb-d2bbe809ea8b" class="block border p-2 rounded hover:bg-gray-50 transition-colors no-underline text-black">
+                                <i class="fas fa-magnifying-glass text-blue-600 mr-2"></i>Consultar de Criação de Turmas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO MATERIAIS DE DIVULGAÇÃO -->
+        <section id="materiais" class="mb-12 scroll-mt-20">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="seduc-blue text-white px-6 py-4 flex items-center justify-between">
+                    <h2 class="text-2xl font-bold flex items-center"><i class="fas fa-pager mr-3"></i> Materiais de divulgação</h2>
+                    <!-- ========== IMAGEM 8: Mascote GaVa no título da seção ========== -->
+                    <img src="https://i.ibb.co/1tx9ggH6/Aulas-Ol-mpicas-URE-1.jpg" alt="GaVa" class="h-10 w-10 rounded-full border-2 border-white">
+                </div>
+                <div class="p-6">
+                    <p class="mb-4">Baixe e compartilhe os cards, banners e o mascote GaVa para mobilizar sua escola.</p>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- ========== IMAGEM 9: Banner (URE 8 - mesmo do cabeçalho) ========== -->
+                        <a href="https://i.ibb.co/nsVgxqj6/Aulas-Ol-mpicas-URE-8.jpg" target="_blank" class="border rounded-xl p-3 hover:shadow-lg flex flex-col items-center">
+                            <img src="https://i.ibb.co/nsVgxqj6/Aulas-Ol-mpicas-URE-8.jpg" class="h-24 w-full object-cover rounded mb-2">
+                            <span class="text-sm font-medium">Banner oficial</span>
+                        </a>
+                        <!-- ========== IMAGEM 10: Segundo logo (URE 2) ========== -->
+                        <a href="https://i.ibb.co/0jG3FZ0r/Aulas-Ol-mpicas-URE-2.jpg" target="_blank" class="border rounded-xl p-3 hover:shadow-lg flex flex-col items-center">
+                            <img src="https://i.ibb.co/0jG3FZ0r/Aulas-Ol-mpicas-URE-2.jpg" class="h-24 w-full object-cover rounded mb-2">
+                            <span class="text-sm font-medium">Logo Aulas Olímpicas</span>
+                        </a>
+                        <!-- ========== IMAGEM 11: Mascote (URE 1) ========== -->
+                        <a href="https://i.ibb.co/1tx9ggH6/Aulas-Ol-mpicas-URE-1.jpg" target="_blank" class="border rounded-xl p-3 hover:shadow-lg flex flex-col items-center">
+                            <img src="https://i.ibb.co/1tx9ggH6/Aulas-Ol-mpicas-URE-1.jpg" class="h-24 w-full object-cover rounded mb-2">
+                            <span class="text-sm font-medium">Mascote GaVa</span>
+                        </a>
+                        <!-- ========== IMAGEM 12: Arte complementar (URE 4) ========== -->
+                        <a href="https://i.ibb.co/hFZNhdMt/Aulas-Ol-mpicas-URE-4.jpg" target="_blank" class="border rounded-xl p-3 hover:shadow-lg flex flex-col items-center">
+                            <img src="https://i.ibb.co/hFZNhdMt/Aulas-Ol-mpicas-URE-4.jpg" class="h-24 w-full object-cover rounded mb-2">
+                            <span class="text-sm font-medium">Arte complementar</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DOCUMENTOS -->
+        <section id="documentos" class="mb-12 scroll-mt-20">
+            <h2 class="text-2xl font-bold text-blue-800 mb-6 flex items-center gap-2"><i class="fas fa-folder-open"></i> Documentos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="doc-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="seduc-light-blue p-4 flex items-center"><div class="bg-blue-100 p-3 rounded-full mr-4"><i class="fas fa-calendar-alt text-blue-800 text-xl"></i></div><h3 class="font-bold text-blue-800">Calendário 2026</h3></div>
+                    <div class="p-4"><p class="text-gray-600 mb-4">Prazos de inscrições, provas e premiações.</p><a href="https://drive.google.com/file/d/1Rt7e7AHEwcqDtTBv_YZsWIFIIXYsPsz0/view?usp=drive_link" class="inline-block seduc-blue text-white py-2 px-4 rounded hover:bg-blue-700">Acessar</a></div>
+                </div>
+                <div class="doc-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="seduc-light-blue p-4 flex items-center"><div class="bg-blue-100 p-3 rounded-full mr-4"><i class="fas fa-chalkboard-teacher text-blue-800 text-xl"></i></div><h3 class="font-bold text-blue-800">Edital professores</h3></div>
+                    <div class="p-4"><p class="text-gray-600 mb-4">Seleção de docentes para Aulas Olímpicas.</p><a href="https://drive.google.com/file/d/18KvZaK8984kRmyRk4MXH-1fwkmNQggje/view?usp=drive_link" class="inline-block seduc-blue text-white py-2 px-4 rounded hover:bg-blue-700">Baixar</a></div>
+                </div>
+                <div class="doc-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="seduc-light-blue p-4 flex items-center"><div class="bg-blue-100 p-3 rounded-full mr-4"><i class="fas fa-file-pdf text-blue-800 text-xl"></i></div><h3 class="font-bold text-blue-800">Mini Sumário 
+                        de Tutoriais</h3></div>
+                    <div class="p-4"><p class="text-gray-600 mb-4">Versão 27/01/2026.</p><a href="https://drive.google.com/file/d/1OgGTmVkHTAwBNS8rBaDJexc_4av_YsC5/view?usp=drive_link" class="inline-block seduc-blue text-white py-2 px-4 rounded hover:bg-blue-700">Abrir PDF</a></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- destaque GaVa final -->
+        <div class="bg-seduc-light-blue p-5 rounded-xl flex items-center gap-4">
+            <!-- ========== IMAGEM 13: Mascote GaVa no rodapé interno ========== -->
+            <img src="https://i.ibb.co/1tx9ggH6/Aulas-Ol-mpicas-URE-1.jpg" class="w-16 h-16 rounded-full border-2 border-blue-700">
+            <p class="text-blue-900 font-medium"><span class="font-black">GaVa</span> é o símbolo da nossa união. Com ele, vamos fortalecer a cultura olímpica na URE Caieiras!</p>
+        </div>
+    </main>
+
+    <footer class="seduc-blue text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+                        <!-- ========== IMAGEM 14: Mascote GaVa no rodapé ========== -->
+                        <img src="https://i.ibb.co/1tx9ggH6/Aulas-Ol-mpicas-URE-1.jpg" class="h-8 w-8 rounded-full"> URE Caieiras
+                    </h3>
+                    <p class="text-sm">Escolas Olímpicas e Olimpíadas Científicas – com o GaVa, vamos mais longe.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Atalhos</h3>
+                    <ul class="space-y-1 text-sm">
+                        <li><a href="#" class="hover:text-yellow-200">Sala do Futuro</a></li>
+                        <li><a href="#" class="hover:text-yellow-200">Escola Total (frequência)</a></li>
+                        <li><a href="#" class="hover:text-yellow-200">Secretaria Escolar Digital</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Redes</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-yellow-200 text-xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="hover:text-yellow-200 text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-yellow-200 text-xl"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-700 mt-8 pt-6 text-sm text-center">
+                <p>© 2026 URE Caieiras - SEDUC-SP | Mascote GaVa é marca das Escolas Olímpicas</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+
+        // abas
+        const tabs = document.querySelectorAll('.tab-button');
+        const contents = document.querySelectorAll('.tab-content');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('active', 'seduc-blue', 'text-white');
+                    t.classList.add('bg-transparent', 'text-gray-700');
+                });
+                tab.classList.add('active', 'seduc-blue', 'text-white');
+                const target = tab.getAttribute('data-tab');
+                contents.forEach(content => content.classList.add('hidden'));
+                document.getElementById(target).classList.remove('hidden');
+            });
+        });
+        window.onload = function() {
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('seduc-blue', 'text-white'));
+            const activeTab = document.querySelector('.tab-button.active');
+            if(activeTab) activeTab.classList.add('seduc-blue', 'text-white');
+        };
+    </script>
+</body>
+</html>
